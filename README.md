@@ -9,6 +9,8 @@
 
 - [Основные возможности](#основные-возможности)
 - [Установка и запуск](#установка-и-запуск)
+  - [Самостоятельная сборка](#самостоятельная-сборка)
+  - [Скачать готовый JAR](#скачать-готовый-jar)
 - [Параметры](#параметры)
 - [Форматы вывода](#форматы-вывода)
 - [Примеры использования](#примеры-использования)
@@ -30,14 +32,27 @@
 ---
 ## Установка и запуск
 
-1. Убедитесь, что у вас установлены [Java 17+](https://adoptium.net/) и [Maven](https://maven.apache.org/install.html) .
-2. Соберите JAR-файл:
+Есть два способа получить JAR-файл утилиты:
+
+### Самостоятельная сборка
+
+Убедитесь, что у вас установлены [Java 17+](https://adoptium.net/) и [Maven](https://maven.apache.org/install.html) .
 ``` bash
+git clone https://github.com/zux13/file-stats-util.git
+cd file-stats-util
 mvn clean package
 ```
-3. Запустите утилиту, указав путь к каталогу:
+После сборки JAR будет доступен в:
 ``` bash
-java -jar target/file-statistics-1.0-SNAPSHOT.jar /path/to/your/project
+target/file-stats.jar
+```
+
+### Скачать готовый JAR
+Если не хотите собирать проект самостоятельно, можно скачать готовый JAR на [странице релизов](https://github.com/zux13/file-stats-util/releases).
+
+Для запуска:
+``` bash
+java -jar file-statis.jar /path/to/your/project
 ```
 
 ---
@@ -72,19 +87,19 @@ java -jar target/file-statistics-1.0-SNAPSHOT.jar /path/to/your/project
 
 ``` bash
 # Базовый вызов: анализ каталога без рекурсии
-java -jar file-statistics.jar ~/src
+java -jar file-stats.jar ~/src
 
 # Рекурсивный анализ, ограничение глубины, 4 потока, вывод в JSON
-java -jar file-statistics.jar ~/src --recursive --max-depth=2 --thread=4 --output=json
+java -jar file-stats.jar ~/src --recursive --max-depth=2 --thread=4 --output=json
 
 # Использовать только файлы .java и .xml, исключить .tmp и .log
-java -jar file-statistics.jar ~/src --recursive --include-ext=java,xml --exclude-ext=tmp,log
+java -jar file-stats.jar ~/src --recursive --include-ext=java,xml --exclude-ext=tmp,log
 
 # Игнорировать файлы из .gitignore, показать статистику игнорирования
-java -jar file-statistics.jar ~/src --git-ignore --verbose
+java -jar file-stats.jar ~/src --git-ignore --verbose
 
 # Вывести справку
-java -jar file-statistics.jar --help
+java -jar file-stats.jar --help
 ```
 
 ---
