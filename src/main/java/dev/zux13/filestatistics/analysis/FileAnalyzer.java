@@ -30,9 +30,6 @@ public class FileAnalyzer {
         long sizeInBytes = Files.size(filePath);
 
         List<String> lines = readAllLinesSafely(filePath);
-        if (lines.isEmpty()) {
-            return null;
-        }
 
         long totalLines = lines.size();
         long nonEmptyLines = lines.stream().map(String::strip).filter(s -> !s.isEmpty()).count();
