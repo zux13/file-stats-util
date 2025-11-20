@@ -52,7 +52,7 @@ target/file-stats.jar
 
 Для запуска:
 ``` bash
-java -jar file-statis.jar /path/to/your/project
+java -jar file-stats.jar /path/to/your/project
 ```
 
 ---
